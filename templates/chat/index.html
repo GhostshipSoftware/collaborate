@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class=container>
+    <ul class="nav nav-tabs" id="chatroom_list" data-tabs="tabs">
+        <li class="active" id="lobbyli"><a href="#lobby" data-toggle="tab">Chat Lobby</li></a>
+    </ul>
+    <div class="tab-content" id="tabcontent">
+        <div class="tab-pane active" id="lobby">
+            <table class="table table-striped" style="width:100%; padding: 5%; text-align: center;">
+                <tr>
+                <th>Channel Name</th><th>Description</th><th>Control</th>
+                </tr>
+                {% for channel in channels %}
+                <tr id="tbl_channel{{channel.id}}">
+                <td class>{{channel.name}}</td><td>{{channel.description}}</td><td><button class="btn btn-small btn-success channel join" value="{{channel.id}}">Join Channel</button> <button class="btn btn-small btn-error delete" value="{{channel.id}}">Delete</button></td>
+                </tr>
+                {%endfor%}
+                <tr>
+            </table>
+                <a href="#cchannelmodal" class="btn btn-success" role="button" data-toggle="modal" data-target="#cchannelmodal">Create Channel</a>
+       </div> 
+</div>
+
+<div id="cchannelmodal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Create a New Channel:</h3>
+    </div>
+    <div class="modal-body">
+        <form  id="create_channel_form">
+            <style>
+                #create_channel_form input { height: 30px; }
+            </style>
+            Channel Name: <input type="text" id="channel_name"><br>
+            Description: <input type="text" id="channel_desc"><br>
+            MOTD: <input type="text" id="channel_motd"><br>
+        </form>
+            <button id="create_channel_btn">Create</button>
+    </div>
+    </div>
+    </div>
+<div>
+{% endblock %}       

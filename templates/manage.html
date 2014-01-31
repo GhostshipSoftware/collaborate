@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <ul class="nav nav-tabs" id="manage_list" data-tabs="tabs">
+        <li class="active"><a href="#users" data-toggle="tab"><i class="icon-user icon-large"> User Management</i></li></a>
+        <li><a href="#chatchannels" data-toggle="tab"><i class="icon-group icon-large"> Chat Management</i></li></a>
+    </ul>
+     <div class="tab-content" id="tabcontent">
+        <div class="tab-pane active" id="users">
+            <table class="table table-striped">
+                <tr><th>Username</th><th>Email Address</th><th>Active?</th><th>Staff?</th><th>Created</th><th>Control</th></tr>
+                {% for u in users %}
+                    <tr>
+                        <td><a href="/detail/user/?uid={{u.id}}">{{u.username}}</a></td><td>{{u.email}}</td><td>{{u.is_active}}</td><td>{{u.is_staff}}</td><td>{{u.date_joined}}</td><td><button class="btn btn-error delete_user_btn" value={{u.id}}>Delete</button></td>
+                    </tr>
+                {% endfor %}
+        </table>
+            <a href="#cusermodal" role="button" data-toggle="modal" data-target="#cusermodal">Add a new User</a>
+        </div>
+        <div class="tab-pane" id="chatchannels">
+            <table class="table table-striped">
+                <tr><th>Channel Name</th><th>Description</th><th>Control</th></tr>
+                {% for channel in channels %}
+                    <tr><td>{{channel.name}}</td><td>{{channel.description}}</td><td></td></tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+
+<div id="cusermodal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Create a New User:</h3>
+    </div>
+    <div class="modal-body">
+    <style>
+       #create_user_form input { height: 31px;}
+    </style>
+        <form  id="create_user_form">
+            First Name: <input type="text" id="first_name"><br>
+            Last Name: <input type="text" id="last_name"><br>
+                Email: <input type="text" id="email" style="margin-left: 2.5em;"><br>
+            Username: <input type="text" id="username" style="margin-left: 5px;"><br>
+            Password: <input type="password" id="password" style="margin-left: 6px;"><br>
+            Staff User: <input type="checkbox" id="is_staff"><br>
+            Superuser: <input type="checkbox" id="is_superuser"><br>
+        </form>
+            <button id="create_user_btn">Create</button>
+    </div>
+    </div>
+    </div>
+<div>
+
+{%endblock%}

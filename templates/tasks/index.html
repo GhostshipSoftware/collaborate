@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+    {% for tl in tasklists %}
+            <div class="col-md-12">
+                <h4 class="page-header">{{tl.title}}<small><i>  {{tl.description}}</i></small></h4>
+                    <table class="table table-striped tasklist hidden-xs hidden-sm" id="taskstbl{{tl.id}}" value={{tl.id}}>
+                    </table> 
+                    <table class="table table-striped tasklist-mobile hidden-md hidden-lg visible-xs visible-sm" id="tasktbl_mobile{{tl.id}}" value={{tl.id}}>
+                    </table>
+                        
+                    
+                    <a id="{{tl.title}}" href="#ctaskmodal{{tl.id}}" role="button" data-toggle="modal" data-target="#ctaskmodal{{tl.id}}" value="{{tl.id}}">Add task  </a>|
+                    <a id="{{tl.title}}" class="delete_tasklist_btn" href="#" role="button" data-toggle="modal" value="{{tl.id}}"> Delete Tasklist</a>
+                    
+                    <div id="ctaskmodal{{tl.id}}"  class="modal fade" tabindex="0" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 class="modal-title">Create a New Task:</h3>
+                       </div>
+                        <div class="modal-body">
+                            <form  id="create_task_form">
+                                 <style>
+                                    #create_task_form input { height: 30px; }
+                                </style>
+                                Task Name:  <input type="text" id="task_name{{tl.id}}"><br>
+                                Description: <input type="text" id="task_desc{{tl.id}}"><br>
+                                Due Date: <input type="text" class="datepicker" id="task_due_date{{tl.id}}"><br>
+                            </form>
+                                <button class="create_task_btn" value="{{tl.id}}">Create</button>
+                       </div>
+                       </div>
+                        </div>
+                    </div>
+           </div>
+    {% endfor %}
+    </div>
+    <br>
+    <div class="col-md-8"><a href="#ctasklistmodal" role="button" data-toggle="modal" data-target="#ctasklistmodal">Create New List</a></div>
+</div>
+<div id="ctasklistmodal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title">Create a New tasklist:</h3>
+
+    </div>
+    <div class="modal-body">
+        <form  id="create_tasklist_form">
+            <style>
+                #create_tasklist_form input { height: 30px; }
+            </style>
+            Tasklist Name:  <input type="text" id="tasklist_name"><br>
+            Description: <input type="text" id="tasklist_desc"><br>
+        </form>
+            <button id="create_tasklist_btn">Create</button>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+{%endblock%}
+    
+                     
