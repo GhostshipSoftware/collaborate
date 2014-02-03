@@ -27,6 +27,13 @@ def chat(request):
     user = request.user
     return render_to_response('chat/index.html', {'channels': channels, 'user': user, 'account': user.account_id}, context_instance=RequestContext(request))
 
+def channel(request):
+    channel = request.GET['channel']
+    co = Channel.objects.get(pk=channel)
+    ao = Account.objects.get(pk=request.user.account_id)
+    user = request.user
+    return render_to_response('chat/channel.html', {'channel_obj': co, 'channel': channel, 'user': user, 'account': user.account_id, 'account_obj': ao }, context_instance=RequestContext(request))
+
 def logout_view(request):
     logout(request)
     return redirect("/accounts/login/")
@@ -96,7 +103,7 @@ class MessageCreateView(generics.ListCreateAPIView):
         if cversion is None:
             cversion = 1
             cache.set(request.user.id, cversion)
-        messages = Message.objects.filter(channel=pk).order_by('-id')[:100]
+        messages = Message.objects.filter(channel=pk).order_by('-id')[:300]
         messages = reversed(messages)#reverse the list to get proper ordering
         mlist = list(messages) #convert tolist from reversed obj
         s = MessageSerializer(mlist)

@@ -62,7 +62,6 @@ class Channel(models.Model):
 
     def remove_user(self, user):
         for m in self.members['users']:
-            print m
             if m['id'] == user['id']:
                 self.members['users'].remove(user)
                 break

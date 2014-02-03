@@ -12,7 +12,7 @@
                 </tr>
                 {% for channel in channels %}
                 <tr id="tbl_channel{{channel.id}}">
-                <td class>{{channel.name}}</td><td>{{channel.description}}</td><td><button class="btn btn-small btn-success channel join" value="{{channel.id}}">Join Channel</button> <button class="btn btn-small btn-error delete" value="{{channel.id}}">Delete</button></td>
+                <td class>{{channel.name}}</td><td>{{channel.description}}</td><td><a href="/chat/channel/?channel={{channel.id}}" target='_blank' class="btn btn-small btn-success channel" value="{{channel.id}}">Join Channel</a> <button class="btn btn-small btn-error delete" value="{{channel.id}}">Delete</button></td>
                 </tr>
                 {%endfor%}
                 <tr>

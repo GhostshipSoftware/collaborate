@@ -3,6 +3,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from collaborate.chat import views
 
 urlpatterns = patterns('collaborate.chat.views',
+    url(r'^chat/channel/', views.channel),
     url(r'^chat/', views.chat),
     url(r'^channels/$', views.ChannelListView.as_view()),
     url(r'^channels/(?P<pk>[0-9]+)/users/$', views.ChannelUserAddView.as_view()),

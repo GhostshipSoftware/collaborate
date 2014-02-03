@@ -1,14 +1,27 @@
-{% extends "chat/base.html" %}
+{% extends "base.html" %}
 {% block content %}
-<div class=container>
-    <div class="container well" id="chatbox" style="height: 400px; overflow-y: scroll;">
-
+<script type="text/javascript" src="/static/js/chat/channel.js"></script>
+<div class=row>
+    <div class='col-mod-8' style="width:100%;">
+        <h3>{{account_obj.company_name}} <small>-> {{channel_obj.name}}</small></h3>
     </div>
-    <div class="form">
-            <input type="text" id="msg">
-            <input type="submit" id="send" value="Send">
+</div>
+<div class=row>
+  <div id="motd{{channel}}" style="margin-top: .2%; padding: 5px; width:100%;" class="col-md-8 alert alert-info"><i>MOTD: Loading...</i></div>
+</div>
+<div class="row">
+        <div class="col-md-8 well"  id="chatbox{{channel}}" style="overflow-y: scroll; height: 400px;"></div>
+        <div class="col-md-4" style="border-top: 1px black solid; border-bottom: 1px solid black" id="users{{channel}}"></div> 
+</div>
+<div class="row">
+    <div class="col-md-8 form" style="width: 100%;" id="form">  
+        <input type="text" id="msg{{channel}}" style="width:80%; height: 2em;"> 
+        <button class="btn btn-small btn-success" id="send" channel="{{channel}}">Send</button>
+        <button class="btn btn-mini btn-danger" id=dismiss>Leave</button> 
+        <input type="hidden" id="user" value={{channel}}> <input type="hidden" id="channel" value={{channel}}> </div></div>
+    </div>
+</div>
             <input type="hidden" id="user" value={{user.id}}>
             <input type="hidden" id="account" value={{account}}>
-    </div>
 </div>
 {% endblock %}

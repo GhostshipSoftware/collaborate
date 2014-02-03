@@ -14,10 +14,9 @@ function humanize_date_string(dstring){
 $(document).ready(function(){
     //maps to a send button somewhere that does the actual posting.
     function send(event){
-        //send a message to the chat service api.
-        var sender = $("#user").val(); // the sender, which would be gotten from a user object, typically the user logged in currently.
-        var channel = event.data.channel; // channel is the channel object id for which the message is destined.
-        var msg = $("#msg"+channel).val(); // the message we will be sending to the chat api
+        var sender = $("#user").val(); 
+        var channel = event.data.channel; 
+        var msg = $("#msg"+channel).val();
         $.ajax({
             url: "https://collaborate.ghostship.org/channels/" + channel +"/messages/",
             type: 'POST',
@@ -58,8 +57,6 @@ $(document).ready(function(){
 
     
     function dismiss(event){ 
-        //remove the user from the channel object and
-        //nuke all record of its existance from the DOM/cookies
         channel = event.data.channel
         var user = $("#user").val()
         $.ajax({
@@ -75,11 +72,6 @@ $(document).ready(function(){
                 $('#lobbyli').addClass("active");
                 $('#lobby').addClass("active");
                 $.removeCookie(channel);
-                //as far as I can tell this has to be here.
-                //only way to stop the poll once its started is to refresh
-                //causing the list of open channels to also refresh which is
-                //what is used to instantiate each polling loop.  Seems hacky,
-                //and likely is.
                 window.location.reload()
             }
         });
@@ -103,8 +95,12 @@ $(document).ready(function(){
                 if ( $("#"+channel).length) {
                     alert("You already have a tab to that channel open.");
                 }else{
+                /*
                     $("#chatroom_list").append('<li id="channel' + channel + '" class="channel"><a href="#' + channel + '" data-toggle="tab">Loading..</a></li>');
             $("#tabcontent").append('<div class="tab-pane" id="' + channel + '"> <div class="row"><div class="col-md-8"  id="chatbox' + channel + '" style="overflow-y: scroll; height: 400px;"></di><div id="motd' +channel+ '" style="position: fixed; margin-top: .2%; padding: 5px;" class="col-md-4 alert alert-info">MOTD: Loading...</div></div><div class="col-md-4" id="users' + channel + '"></div> </div><div class="row"><div class="container span9 form" id="form'+channel+'" style="margin-top: 1%;">  <input type="text" id="msg'+channel+'" style="margin-top: 2%;width: 85%; height: 2em;"> <input type="submit" class="btn btn-small btn-success" id="send'+channel+'" channel="'+channel+'"value="Send"><button class="btn btn-mini btn-danger" id=dismiss'+channel+'>Leave</button> <input type="hidden" id="user" value=' + user + '> <input type="hidden" id="channel'+channel+'" value=' + channel + '> </div></div>');
+                */
+                    window.location.replace('/chat/channel/?channel='+channel)
+/*
                     $.cookie(channel, true, {expires: 1 });
                     $("#send"+channel).on("click", { channel: channel}, send);
                     $("#dismiss"+channel).on("click",{channel: channel},dismiss);
@@ -132,6 +128,7 @@ $(document).ready(function(){
                         });
                     $("#chatbox" + channel).animate({scrollTop: $("#chatbox" + channel).prop("scrollHeight") - $("#chatbox" + channel).height() });
                     poll(channel);
+    */
                 }
             }
     });

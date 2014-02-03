@@ -22,9 +22,9 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'billing.BillingUser'
 
-#RAVEN_CONFIG = {
-#    'dsn': 'https://e6e0e3089d6145a59f1df3ba5eeed64d:4164a5d087714d36994a12c41185c962@app.getsentry.com/18651',
-#}
+RAVEN_CONFIG = {
+    'dsn': 'https://e6e0e3089d6145a59f1df3ba5eeed64d:4164a5d087714d36994a12c41185c962@app.getsentry.com/18651',
+}
 
 
 #AUTH_PROFILE_MODULE = 'billing.UserProfile'
