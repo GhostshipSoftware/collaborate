@@ -10,8 +10,17 @@
   <div id="motd{{channel}}" style="margin-top: .2%; padding: 5px; width:100%;" class="col-md-8 alert alert-info"><i>MOTD: Loading...</i></div>
 </div>
 <div class="row">
-        <div class="col-md-8 well"  id="chatbox{{channel}}" style="overflow-y: scroll; height: 400px;"></div>
-        <div class="col-md-4" style="border-top: 1px black solid; border-bottom: 1px solid black" id="users{{channel}}"></div> 
+        <div class="col-md-8 well"  id="chatbox{{channel}}" style="overflow-y: scroll; height: 400px;"><p class="chatp">Loading...</p></div>
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Connected Users
+                </div>
+                <div class="panel-body" id=users{{channel}}>
+                    Loading...
+                </div>
+            </div>
+        </div>
 </div>
 <div class="row">
     <div class="col-md-8 form" style="width: 100%;" id="form">  

@@ -103,7 +103,7 @@ class MessageCreateView(generics.ListCreateAPIView):
         if cversion is None:
             cversion = 1
             cache.set(request.user.id, cversion)
-        messages = Message.objects.filter(channel=pk).order_by('-id')[:300]
+        messages = Message.objects.filter(channel=pk).order_by('-id')[:100]
         messages = reversed(messages)#reverse the list to get proper ordering
         mlist = list(messages) #convert tolist from reversed obj
         s = MessageSerializer(mlist)
