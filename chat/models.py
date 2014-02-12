@@ -1,9 +1,9 @@
 from django.db import models
 from django.db import models
-from collaborate.ticketing.fields import PickledObjectField
-from collaborate.billing.models import *
-from collaborate.billing.serializers import *
-from collaborate import settings
+from ticketing.fields import PickledObjectField
+from billing.models import *
+from billing.serializers import *
+import settings
 import django.utils.simplejson as json
 import jsonfield
 from django.contrib.auth.models import User

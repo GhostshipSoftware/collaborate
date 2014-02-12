@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
-from collaborate.ticketing import views
+from ticketing import views
 
 urlpatterns = patterns('collaborate.ticketing.views',
     url(r'^tickets/$', views.TicketListView.as_view()),

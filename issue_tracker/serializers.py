@@ -1,6 +1,6 @@
 from django.forms import widgets
 from rest_framework import serializers
-from collaborate.issue_tracker.models import *
+from issue_tracker.models import *
 
 
 

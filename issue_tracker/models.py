@@ -1,7 +1,7 @@
 from django.db import models
-from collaborate.issue_tracker.fields import PickledObjectField
-from collaborate.billing.models import *
-from collaborate import settings
+from issue_tracker.fields import PickledObjectField
+from billing.models import *
+import settings
 import django.utils.simplejson as json
 from django.contrib.auth.models import User
 

@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
-from collaborate.issue_tracker import views
+from issue_tracker import views
 
 urlpatterns = patterns('collaborate.issue_tracker.views',
     url(r'^issue_managers/', views.IssueManagerListView.as_view()),

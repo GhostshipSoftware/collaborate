@@ -1,9 +1,9 @@
-from collaborate.billing.serializers import *
-from collaborate.billing.models import *
-from collaborate.chat.models import *
-from collaborate.issue_tracker.models import *
-from collaborate.tasklist.models import *
-from collaborate.ticketing.models import *
+from billing.serializers import *
+from billing.models import *
+from chat.models import *
+from issue_tracker.models import *
+from tasklist.models import *
+from ticketing.models import *
 from django.shortcuts import *
 from django.contrib.auth.models import User
 

@@ -1,6 +1,6 @@
 from django.forms import widgets
 from rest_framework import serializers
-from collaborate.billing.models import *
+from billing.models import *
 
 class AccountSerializer(serializers.ModelSerializer):
     users = serializers.SerializerMethodField('get_users')

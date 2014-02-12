@@ -1,9 +1,9 @@
 from django.db import models
-from collaborate.ticketing.fields import PickledObjectField
-from collaborate import settings
+from ticketing.fields import PickledObjectField
+import settings
 import django.utils.simplejson as json
 from django.contrib.auth.models import User
-from collaborate.billing.models import Account
+from billing.models import Account
 # Create your models here.
 
 class Ticket(models.Model):

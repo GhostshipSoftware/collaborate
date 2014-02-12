@@ -9,8 +9,8 @@ from django.contrib.auth.models import User
 import urllib2, urllib
 from django.shortcuts import *
 from django.http import HttpResponse
-from collaborate.ticketing.serializers import *
-from collaborate.ticketing.models import *
+from ticketing.serializers import *
+from ticketing.models import *
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView

@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
-from collaborate.tasklist import views
+from tasklist import views
 
 urlpatterns = patterns('collaborate.tasklist.views',
     url(r'^tasklists/$', views.TaskListListView.as_view()),

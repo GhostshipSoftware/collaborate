@@ -1,6 +1,6 @@
 from django.forms import widgets
 from rest_framework import serializers
-from collaborate.tasklist.models import *
+from tasklist.models import *
 
 class TaskSerializer(serializers.ModelSerializer):
 

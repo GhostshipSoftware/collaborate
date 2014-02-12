@@ -7,8 +7,8 @@ from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.shortcuts import *
 from django.http import HttpResponse
-from collaborate.issue_tracker.serializers import *
-from collaborate.issue_tracker.models import *
+from issue_tracker.serializers import *
+from issue_tracker.models import *
 from django.views.decorators.cache import cache_control, cache_page
 from django.utils.decorators import method_decorator
 from rest_framework.decorators import api_view

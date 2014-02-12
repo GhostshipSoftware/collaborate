@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import UserManager,AbstractUser
-from collaborate.billing.models import *
-from collaborate import settings
+from billing.models import *
+import settings
 
     
 # Create your models here.

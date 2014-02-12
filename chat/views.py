@@ -8,8 +8,8 @@ from django.contrib.auth.models import User
 from billing.models import BillingUser
 from django.shortcuts import *
 from django.http import HttpResponse
-from collaborate.chat.serializers import *
-from collaborate.chat.models import *
+from chat.serializers import *
+from chat.models import *
 from django.views.decorators.cache import cache_control, cache_page
 from django.utils.decorators import method_decorator
 from rest_framework.decorators import api_view

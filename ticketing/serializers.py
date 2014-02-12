@@ -1,6 +1,6 @@
 from django.forms import widgets
 from rest_framework import serializers
-from collaborate.ticketing.models import *
+from ticketing.models import *
 
 class TicketSerializer(serializers.ModelSerializer):
     comments = serializers.SerializerMethodField('get_comments')

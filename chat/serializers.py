@@ -1,6 +1,6 @@
 from django.forms import widgets
 from rest_framework import serializers
-from collaborate.chat.models import *
+from chat.models import *
 
 
 

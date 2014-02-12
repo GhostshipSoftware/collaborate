@@ -1,5 +1,5 @@
 # Our apps
-from collaborate.tasklist.models import *
+from tasklist.models import *
 #
 
 from django.contrib import auth
