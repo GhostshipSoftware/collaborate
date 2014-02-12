@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from rest_framework.renderers import JSONRenderer
 
 from south.modelsinspector import add_introspection_rules
-add_introspection_rules([], ["^collaborate\.ticketing\.fields\.PickledObjectField"])
+add_introspection_rules([], ["^ticketing\.fields\.PickledObjectField"])
 
 class Message(models.Model):
     """

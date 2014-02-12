@@ -1,8 +1,8 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from chat import views
 
-urlpatterns = patterns('collaborate.chat.views',
+urlpatterns = patterns('chat.views',
     url(r'^chat/channel/', views.channel),
     url(r'^chat/', views.chat),
     url(r'^channels/$', views.ChannelListView.as_view()),

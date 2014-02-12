@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from ticketing import views
 
