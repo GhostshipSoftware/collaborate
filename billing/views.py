@@ -11,6 +11,8 @@ from rest_framework import renderers
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.middleware import csrf
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -95,7 +97,6 @@ class AccountCreateUser(APIView):
             return Response(s.data, status=status.HTTP_201_CREATED)
         return Response(s.errors, status=status.HTTP_400_BAD_REQUEST)
 
-                    
 class ObtainAuthToken(APIView):
     throttle_classes = ()
     permission_classes = ()
@@ -103,14 +104,18 @@ class ObtainAuthToken(APIView):
     renderer_classes = (renderers.JSONRenderer,)
     serializer_class = AuthTokenSerializer
     model = Token
-    
+
+
+    def perform_authentication(self, request):
+        pass
+
     def post(self, request):
         serializer = self.serializer_class(data=request.DATA)
         if serializer.is_valid():
             token, created = Token.objects.get_or_create(user=serializer.object['user'])
             csrf_token = csrf.get_token(request)
-            account_id = request.user.account_id
+            account_id = serializer.object['user'].account_id
             return Response({'token': token.key, 'user': serializer.object['user'].id, 'csrftoken': csrf_token, 'account_id': account_id})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+obtain_auth_token = ObtainAuthToken.as_view()
