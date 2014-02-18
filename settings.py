@@ -41,7 +41,7 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
-ALLOWED_HOSTS = ['collaborate.ghostship.org']
+ALLOWED_HOSTS = ['collaborate.ghostship.org', '*']
 
 SITE_ID = 1
 
@@ -116,7 +116,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/var/www/apps/collaborate/templates',
+    '/var/www/apps/collaborate/current/templates',
 )
 
 INSTALLED_APPS = (

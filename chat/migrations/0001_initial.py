@@ -25,7 +25,7 @@ class Migration(SchemaMigration):
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, auto_now_add=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=140)),
             ('description', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('members', self.gf('collaborate.ticketing.fields.PickledObjectField')(null=True)),
+            ('members', self.gf('ticketing.fields.PickledObjectField')(null=True)),
             ('account', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['billing.Account'])),
             ('motd', self.gf('django.db.models.fields.CharField')(max_length=255)),
         ))
@@ -85,7 +85,7 @@ class Migration(SchemaMigration):
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'description': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'members': ('collaborate.ticketing.fields.PickledObjectField', [], {'null': 'True'}),
+            'members': ('ticketing.fields.PickledObjectField', [], {'null': 'True'}),
             'motd': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '140'}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'auto_now_add': 'True', 'blank': 'True'})
